@@ -16,8 +16,8 @@ class Tateti extends React.Component{
 	}
 
 	casilleroHandleClick(casillero){
+		var tablero = this.state.tablero;
 		if(tablero[casillero.numeroFila][casillero.numeroCasillero] == '?'){
-			var tablero = this.state.tablero;
 			if (this.state.turnoJugador1){
 				var marca = 'X'
 			}else{
