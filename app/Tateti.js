@@ -16,17 +16,19 @@ class Tateti extends React.Component{
 	}
 
 	casilleroHandleClick(casillero){
-		var tablero = this.state.tablero;
-		if(this.state.turnoJugador1){
-			var marca = 'X'
-		}else{
-			var marca = 'O'
+		if(tablero[casillero.numeroFila][casillero.numeroCasillero] == '?'){
+			var tablero = this.state.tablero;
+			if (this.state.turnoJugador1){
+				var marca = 'X'
+			}else{
+				var marca = 'O'
+			}
+			tablero[casillero.numeroFila][casillero.numeroCasillero] = marca;
+			this.setState({
+				'tablero' : tablero,
+				turnoJugador1 : !this.state.turnoJugador1
+			});
 		}
-		tablero[casillero.numeroFila][casillero.numeroCasillero] = marca;
-		this.setState({
-			'tablero' : tablero,
-			turnoJugador1 : !this.state.turnoJugador1
-		});
 	}
 	
 	render() {
@@ -41,7 +43,7 @@ class Tateti extends React.Component{
 					 	<div className="center-block game-container">
 					 		<div className="row">
 					 			<div className="col-xs-12 text-center">
-					 				<h1>React - Ta te ti</h1>
+					 				<h1>React - Tateti</h1>
 					 			</div>
 					 		</div>
 					 		<div className='row board-container'>
